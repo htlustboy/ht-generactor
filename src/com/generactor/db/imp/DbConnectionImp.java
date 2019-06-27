@@ -85,7 +85,6 @@ public class DbConnectionImp extends AbstractDbBase{
 		}
 	}
 	
-	
 	public static void main(String[] args) {
 		Connection connection = DbConnectionImp.getInstance().getDBConnection();
 		System.out.println(connection);
