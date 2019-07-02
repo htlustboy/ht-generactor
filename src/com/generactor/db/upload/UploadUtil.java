@@ -326,17 +326,19 @@ public class UploadUtil {
 		  .append(String.format("<mapper namespace=\"%s\" >", mapperPackage+"."+mapperName))
 		  .append(RN)
 		  .append(SPACE)
-		  .append(String.format("<resultMap type=\"%s\" id=\"%s\"", modelPackage+"."+beanName,mapperName))
+		  .append(String.format("<resultMap type=\"%s\" id=\"%s\" />", modelPackage+"."+beanName,mapperName))
 		  .append(RN)
 		  .append(SPACE);
 		
 		for(TableInfo info : infos) {
-			sb.append(String.format("<result column=\"%s\" id=\"%s\" jdbcType=\"%s\">", info.getName(),BaseUtil.columnNameToJava(info.getName()),info.getType()))
+			sb.append(String.format("<result column=\"%s\" property=\"%s\" jdbcType=\"%s\" />", info.getName(),BaseUtil.columnNameToJava(info.getName()),info.getType()))
 			  .append(RN)
 			  .append(SPACE);
 		}
 		sb.append(RN);
 		sb.append("</resultMap>");
+		sb.append(RN);
+		sb.append("</mapper>");
 		 
 		System.out.println(String.format("开始导出%s.xml文件：======", mapperName));
 	   //导出

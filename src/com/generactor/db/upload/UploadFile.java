@@ -20,15 +20,12 @@ public class UploadFile {
 			System.out.println("表信息不存在，请确认后再生成！");
 			return;
 		}
+		//需要首先生成xml文件
+		UploadUtil.uploadXmlFile(tableName, infos);
 		UploadUtil.uploadBean(tableName, infos);
 		UploadUtil.uploadController(tableName, infos);
 		UploadUtil.uploadService(tableName, infos);
 		UploadUtil.uploadMapper(tableName, infos);
-		UploadUtil.uploadXmlFile(tableName, infos);
-	}
-	
-	public static void main(String[] args) {
-		upload("ht_user");
 	}
 
 }
